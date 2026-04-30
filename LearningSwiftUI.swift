@@ -9,3 +9,6 @@
 //I am starting the swiftui...
 // var t = "Tarun will become pro in ios development."
 //print(t)
+//"var", intialsing with this keyword can be chnaged any time.
+//If we intialise with "let", keyword we can not chnage the value of particular varible, it throws error.
+//let v = "varun", can't be chnaged.
