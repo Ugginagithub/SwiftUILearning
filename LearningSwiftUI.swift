@@ -240,3 +240,65 @@ let reverseTeam = team.sorted {
 let tOnly = team.filter {$0.hasPrefix("T")} // filters the array by which have T only.
 let upperCased = team.map { $0.uppercased() } //appiles to every element in the array, and makes it uppercased.
 
+/************************************************************************************************************************************************************************************************************************/
+
+//Day 4 : 3 - may - 2026
+
+//the last topic of closures are passing closures as parameters, these are known as "Trailing closures."
+
+func makeNumberDice(size: Int, generator: () -> Int) -> [Int]{ // here we are accepting the closure as parameter
+    var numbers = [Int]()
+    for _ in 0...size{
+        let num = generator() //here we are calling that closure to get the number
+        numbers.append(num)
+    }
+    
+    return numbers
+}
+
+let rolls = makeNumberDice(size: 10){ //this open and closed brace content is closure that we passing.
+    return Int.random(in: 1...20)
+}
+
+print(rolls)
+
+//MARK: Creating structs
+//we can have functions in struct also
+
+struct Album {
+    let title : String
+    let artist : String
+    let year : Int
+    
+    func printSummary(){ // we can also pass the parameters.
+        print("\(title) \(year) by \(artist)")
+    }
+}
+
+let red = Album(title: "red", artist: "taylor swift", year: 2026)
+
+red.printSummary() // here we can access the func inside the model.
+
+//when the function inside the struct is labled with "mutating" keyword that we saying that this function elements will be changing as per conditions, and we want to access the function then the varible should intialise with var keyword, let red to var red.
+
+//Now we can track, when a variable is changing its value anywhere, we have "didset{}", this will execute whenever the variable has changed.
+struct Game{
+    var score = 0 {
+        
+        //this executes before the value gets changed
+        willSet{
+            print("willset executed")
+            print("The present score is \(score)")
+        }
+        //this executes after the value gets changed.
+        didSet {
+            print("Score now \(score)")
+        }
+    }
+}
+
+var game = Game()
+game.score += 10 //here also the didset executes,
+game.score -= 5//here also the didset executes,
+game.score += 1//here also the didset executes,
+
