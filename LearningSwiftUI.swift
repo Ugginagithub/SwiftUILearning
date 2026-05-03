@@ -126,4 +126,117 @@ var dict : [String:Int]
 var age = 20
 let canVote = age >= 18 ? "Eligible" : "Not Eligible" // WTF = What? True : False
 
+/************************************************************************************************************************************************************************************************************************/
+
+//Day 3: 2 - may - 2026
+
+//MARK: Functions
+//Flexible for use same block code in multiple places.
+
+//Inbulit functions
+let roll = Int.random(in: 1...20) //random is inbuild function.
+
+//custom functions.
+func showWelcome(){
+    print("welcome to IOS world")
+    print("lets start great...")
+}
+showWelcome()
+
+//function can accept parameters, and return values.
+func showWelcome(a: String) -> String{
+    return "Hello welcome"
+}
+
+showWelcome(a: "Hi")
+
+//import Cocoa : can give lot of inbuild functions like sqrt,sorted(), etc..
+
+let root = sqrt(9)
+
+//we can return mutiple elements like returning arrays, dictonatiors
+func getUser() -> [String]{
+    return ["taylor","swift"]
+}
+
+//return "tuples" more flexible then arrays and dictionaries, similar to dictionaries in usage but have differences
+func getUsers() -> (firstName: String, lastName: String){
+    return (firstName: "Taylor", lastName: "Swift")
+}
+
+let user = getUsers()
+print("firstname is \(user.firstName), secondname is \(user.secondName)")
+
+
+//MARK: Handling error in functions without crashes.
+
+step 1:
+enum PasswordError: Error {
+    case short, obvious
+}
+
+step 2:
+func checkPassword(_ password: String) throws -> String {
+    if password.count < 5 { throws PasswordError.short}
+    if password == "12345" { throws PasswordError.obvious}
+    
+    if password.count < 8 {
+        return "OK"
+    }else if password.count < 10{
+        return "good"
+    }else{
+        return "excelleent"
+    }
+}
+
+step 3:
+do {
+    let result = try checkPassword("123")
+    print("the password rating is \(result)")
+}catch PasswordError.short {
+    print("Please use a long password.")
+}catch {
+    print("There was an error with password")
+}
+
+
+//MARK: Creating closures.
+
+let sayHello = {
+    print("Hello all")
+}
+
+sayHello()
+
+//check the parameters accepting and return closure
+let sayHello = { (name: String) -> String in
+    "Hi \(name)"
+}
+
+print(sayHello("Tarun"))
+
+//Now closure are used for coping actual functions and use flexiblily
+func yearOfAge(_ age: Int) -> String{
+    if age == 12{
+        return "The age is 12 exactly"
+    }else{
+         return "The age is not 12"
+    }
+}
+
+//Closure is used.
+let validAge: (Int) -> String = yearOfAge
+
+print(validAge(13))
+
+
+let team = ["Gloria", "Suzanne", "Piper", "Tiffany", "Tasha"]
+//Custom sort using closures.
+let reverseTeam = team.sorted {
+    return $0 > $1
+}
+
+//inbuilt closures
+let tOnly = team.filter {$0.hasPrefix("T")} // filters the array by which have T only.
+let upperCased = team.map { $0.uppercased() } //appiles to every element in the array, and makes it uppercased.
 
