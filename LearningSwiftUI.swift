@@ -302,3 +302,72 @@ game.score += 10 //here also the didset executes,
 game.score -= 5//here also the didset executes,
 game.score += 1//here also the didset executes,
 
+
+// 8 - May - 2026:
+//MARK: Access  controls.
+
+// 1. private : we can access the variable within the class or struct or method.
+// 2. fileprivate : we can access the variable within the file only, out side the intialised file we can't access.
+// 3. public : anywhere we can access the variable.
+// 4. private(set) : we can print or see the value, but we cant edit its value.(required for banl apps.)
+
+struct Bankaccount{
+    private(set) var funds = 0 // here this variable cant be accessed from outside of the struct and cant set value to the
+    
+    
+    mutating func deposit(_ amount: Int){
+        funds += amount
+    }
+    
+    mutating func withdraw(_ amount: Int) -> Bool{
+        if funds > amount{
+            funds -= amount
+            return true
+        }else{
+            return false
+        }
+    }
+}
+
+var account = Bankaccount()
+account.deposit(100)
+let success = account.withdraw(100)
+
+if success{
+    print("Withdraw amount successful.")
+}else{
+    print("Failed to get money.")
+}
+
+
+//MARK: Static keyword.
+// if we use static keyword we dont need to create instance of it. we can access the variable or function anywhere in project.
+class AppConfig {
+    static let appName = "MyApp"
+}
+
+print(AppConfig.appName)
+
+//Constants examples
+struct Constants {
+    static let baseURL = "https://api.example.com"
+}
+Constants.baseURL //use it anywhere.
+
+//Helper function examples.
+class Utils {
+    static func showLog() {
+        print("Logging")
+    }
+}
+
+Utils.showLog()
+
+//Singleton Pattern
+class NetworkManager {
+    static let shared = NetworkManager()
+}
+NetworkManager.shared // anywhere in project.
+
+
+
