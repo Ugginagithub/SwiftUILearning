@@ -370,4 +370,104 @@ class NetworkManager {
 NetworkManager.shared // anywhere in project.
 
 
+//11 - May - 2026:
+//MARK: Creating classes.
+
+//Similarities between structs and class :
+// 1. You can create and name them.
+// 2. Add properities, methods, property observers and access controls.
+// 3. create the custom intializers, to configure new instances.
+
+//Differences are:
+// 1. You can do inheritence in class. classes support inheritence.
+// 2. swift won't generate a memberwise intializer for classes.
+// 3. if you copy an instance of class, both copies points or share to same data.
+// 4. we can add a deintializer to run when the final copy is destroyed.
+// 5. Constant class instances can have thier variable properities changed.
+
+// A,B,C,D classes points to the same data, if you change data in A, then all the other classes data also changes.
+// If all classes A,B,C,D does not points to the data, then deintializer comes into picture, the deintializer destory the maintained data, when nothing is using it.
+// we can also share methods in inheritence, we can also override methods using keyword "override"
+// If we using "final" keyword, there will be no child class for it.
+// Classes are refernce typed, but the structs are different.
+// Classes dont need to have "mutating" keyword to chnage methods.
+
+
+//Example for inheritence:
+class Employee {
+    var hours: Int
+    
+    init(hours: Int){
+        self.hours = hours
+    }
+}
+
+class Developer: Employee{
+    func work(){
+        print("I'm writing code for \(hours) hours to complete.")
+    }
+}
+
+class Manager: Employee{
+    func work(){
+        print("I am going to meetings for \(hours) hours.")
+    }
+}
+
+var robert = Developer(hours: 8)
+var charles = Manager(hours: 10)
+
+robert.work()
+charles.work()
+
+// Swift intializers.
+class Vehicle{
+    var isElectric : Bool
+    
+    init(isElectric: Bool){
+        self.isElectric = isElectric
+    }
+}
+
+//While intializing in inherited class, we need to use the "super", keyword and intialize the parent class intilizer, else swift will not build the code
+class car: Vehicle{
+    var isConvertible : Bool
+    
+    init(isElectric: Bool, isConvertible: Bool){
+        self.isConvertible = isConvertible
+        super.init(isElectric: isElectric) // need to give this, very important.
+    }
+}
+
+//Deintializers
+// 1. You don't use func, with deintializers
+// 2. Deintializers will not take parameters and never return any data.
+// 3. Deinitializers run when the last copy of a class instane is destroyed.
+// 4. we never call deinitialzers directly.
+// 5. Structs dont have deintializers, because they are not copies, they are uniqueu values.
+
+class User {
+    var id: Int
+    
+    init(id: Int){
+        self.id = id
+        print("User \(id): is alive")
+    }
+    
+    deinit{
+        print("User \(id) is dead.")
+    }
+}
+
+
+//When you make the varible instances, the data will chnage every time, when instance variable value gets changed.
+class AB{
+    var name = "paul"
+}
+
+var user = AB() // initialized with "var" allows to chnage the instance, if we create with "let", we cant create another instance with same name.
+user.name = "Tarun"
+print(user.name) // print Tarun.
+user = AB()
+print(user.name) // print Paul.
 
