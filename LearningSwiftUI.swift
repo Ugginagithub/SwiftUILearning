@@ -471,3 +471,73 @@ print(user.name) // print Tarun.
 user = AB()
 print(user.name) // print Paul.
 
+
+//MARK: Protocols creating and using them.
+// Protocols are like rules for the code, with protocols ,we can say these methods must and should exist and work with them. There will be other methods also if we need.
+// for creating protocol we use "protocol" keyword.
+// we can use protocols in Structs and class also, we should extend it.
+
+protocol Vehicle{
+    //Inside protocol, we dont have the implementation body in it, we see the surface. No function bodies.
+    func estimatedTime(for distance: Int) -> Int
+    func travel(distance: Int)
+}
+
+struct Car : Vehicle{
+    func estimatedTime(for distance: Int) -> Int{
+        return distance / 60
+    }
+    
+    func travel(distance: Int){
+        print("I am driving for \(distance) kms")
+    }
+    
+    func openSunRoof(){
+        print("It's a nice day!")
+    }
+}
+
+//Topic : Opaque return types.
+// By using Equatable keyword we can make the function as generic return type, reuirement : if we write the code to return for int but the after some day yoju want to return double, then no need to chnage every piece code that uses this function which returns int,
+
+func getRandomNumber() -> some Equatable { // This specifies that return type is flexible.
+    Int.random(in: 1...6) // After some day, you can also change this as Double.random(in: 1...6)
+}
+
+print(getRandomNumber())
+
+//Topic : create and use extensions.
+//Extensions means adding new functionality to existing types.
+var quote = " The truth is rarely pure and never simple "
+let trimmed = quote.trimmingCharacters(in: .whitespacesAndNewlines)// we can replace with extesnion
+
+let trimmed = quote.trimmed()// easy with extesnion.
+
+extension String{
+    func trimmed() -> String{
+        self.trimmed(in: .whitespacesAndNewlines)
+    }
+}
+
+//Topic : optionals (handling missing data.)
+
+//intializing
+var username : String? = nil // same for integers, double,
+
+let opposites = ["Mario":"Wario","luigi":"Waluigi"]
+
+//to handle the optional data, we have using "if let", it safe and makes behaviour as expected.
+
+if let marioOpp = opposites["Mario"]{ // here we are handling the optional data in dictionary.
+    print("Mario's opposite is \(marioOpp)") // this executes only when if let condition valid, i.e. it there exsists some value.
+}
+
+//Topic : unwrap optionals with guard let
+func printSquare(of number : Int?){
+    guard let number = number else{
+        print("Missing number")
+        return
+    }
+    print("\(number) X \(number) = \(number * number)")
+}
+
