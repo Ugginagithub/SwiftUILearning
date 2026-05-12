@@ -541,3 +541,24 @@ func printSquare(of number : Int?){
     print("\(number) X \(number) = \(number * number)")
 }
 
+
+//Topic : unwrap optionals with nil coalescing
+
+//nil coalescing operator is appiles for everything, dictionaries, arrays, integers, etc... and provides the default values if the values are nil.
+
+let captains = [
+    "pat cummins" : "Sunrisers Hyderabad",
+    "rohit": "Mumbai Indians",
+    "ms dhoni": "Chennai Super Kings"
+]
+
+let captain = captains["sachin"] ?? "Unknown" // here we are handling with default values.
+// for dictionaries we can do as captains["sachin", default : "Unknown"]
+
+
+
+//Topic : optional chaining...
+let names = ["arya","brandon","sansa", "robb"]
+let chosen = names.randomElement()?.uppercased() ?? "No one" // here we are keeping open for "randomElement", if one element in optional chain is nil, then whole chain will be ignored.
+print("the chosen is \(chosen)")
+
