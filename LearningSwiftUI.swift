@@ -562,3 +562,33 @@ let names = ["arya","brandon","sansa", "robb"]
 let chosen = names.randomElement()?.uppercased() ?? "No one" // here we are keeping open for "randomElement", if one element in optional chain is nil, then whole chain will be ignored.
 print("the chosen is \(chosen)")
 
+//********************************************************************************************************************************************************************************************************
+
+//18 - May - 2026:
+//MARK: Basic structure of swiftUI project.
+
+// when we create we swiftui project we will get some files : 1. Content View 2. Assests 3.<YourAppName>App.
+
+// 1. <YourAppName>App.swift file contents "main" components, its like appdelegate in uikit, In this file it make alive the app components, if it is written in this file.
+// 2. ContentView.swift contents all the view's content here.
+
+//Code:
+import SwiftUI // Apple's advanced framework
+struct ContentView: View { //Here "View" is a protocol from swiftui, common protocol for every time.
+    var body: some View { //Here "body" contains the main content of the view and returns "some view", which contains data.
+        VStack { // Here we applied the vertical stack to maintain the data,
+            Image(systemName: "globe") // this is the way to keep the ImageView.
+                .imageScale(.large) //these are "viewModifiers".
+                .foregroundStyle(.tint)
+            Text("Hello, world!") // this is the way to have the text in our view.
+        }
+        .padding()
+    }
+}
+
+//This piece of code is responsibile for previewing our code in canvas, rightside of desktop. Same like if we referesh, the added code reflects on the screen, if add code in preview it refresh on the screen.
+#Preview {
+    ContentView()
+}
+
+//MARK: Check FirstSwiftUI App for these, Now I am creating the forms,naviagtionStatk
