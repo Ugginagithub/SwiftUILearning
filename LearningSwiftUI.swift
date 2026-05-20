@@ -591,4 +591,10 @@ struct ContentView: View { //Here "View" is a protocol from swiftui, common prot
     ContentView()
 }
 
+//MARK: From now we will build apps and we should follow this sequenece of checking projects.
+
+
 //MARK: Check FirstSwiftUI App for these, Now I am creating the forms,naviagtionStatk
+
+//MARK: 20-may - 2026
+//Today I am going to start new project call "Guess the flag app", check it out
