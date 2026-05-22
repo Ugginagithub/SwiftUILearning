@@ -597,4 +597,7 @@ struct ContentView: View { //Here "View" is a protocol from swiftui, common prot
 //MARK: Check FirstSwiftUI App for these, Now I am creating the forms,naviagtionStatk
 
 //MARK: 20-may - 2026
-//Today I am going to start new project call "Guess the flag app", check it out
+//Today I am going to start new project call "Guess the flag app", check it out, learned about stacks, buttons, images, gradients.. etc.
+
+//MARK: 22 - may - 2026
+//Today I goint to start another project, which is more techcinal and why using elements in swiftui.
