@@ -601,3 +601,84 @@ struct ContentView: View { //Here "View" is a protocol from swiftui, common prot
 
 //MARK: 22 - may - 2026
 //Today I goint to start another project, which is more techcinal and why using elements in swiftui.
+
+//Structs using : why to use the struct instead of class, in uikit we use classes but here we are mainly using structs
+                    -> Structs are more faster than class.
+                    -> UIKit all views are inheritetd from uiview,
+
+
+//Basic structure of swift code
+struct ContentView: View { // here the "ContentView", is the name of the structure and ": View", it will follow view protocol, so that it is conforms that it will return a "body",
+    var body: some View { // Here we are using "some view", this conforms we will return "some view", we are just not wrtiing "View" because it is a protocol,
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundStyle(.tint)
+            Text("Hello, world!")
+        }
+        .padding()
+        
+        Button("Tapp me"){
+            print("Button tapped...")
+        }
+    }
+}
+
+//MARK: Conditional modifiers: is nothing but using ternary operators.
+// .foregrourd(useRedText ? .red : .blue) // here if useRedText varaible is true, then using red color.else using blue color, replacess if else.
+
+//MARK: View as properities
+struct ContentView : View{
+    
+    //Type1 : we can send the view like this also.
+    var moto1: some View{
+        Text("Hello, world.")
+    }
+    //Type2 : we can send the view like this also.
+    let moto2 = Text("World is great.")
+    
+    //Type3 : we can send the multiple - view like this.
+    var spells: some View{
+        Group {
+            Text("Lumos")
+            Text("Creams")
+        }
+    }
+    
+    //Type4 : Using view builder
+    @ViewBuilder var spells: some View{
+        Text("Lumos")
+        Text("Creams")
+    }
+    
+    
+    var body : some View{
+        moto1
+            .foregroundStyle(.red)
+        moto2
+            .foregroundStyle(.blue)
+    }
+}
+
+//MARK: now we will be using custom modifiers
+struct Title : ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
+    }
+}
+
+extension View{
+    func titleStyle() -> some View{
+        self.modifier(Title())
+    }
+}
+
+struct ContentView: View {
+    var body: some View {
+        Text("Hello, world!")
+//            .modifier(Title()) // here we are applying our custom modifier using keyword "modifier".
+            .titleStyle()
+    }
+}
