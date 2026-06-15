@@ -682,3 +682,83 @@ struct ContentView: View {
             .titleStyle()
     }
 }
+
+// 27 - may - 2026
+//MARK: "stepper",
+var body: some View {
+    Stepper("\(sleepingHours.formatted()) hours", value: $sleepingHours, in: 4...12, step: 0.25) //we can give range and as well as step range of chnage.
+    
+    //$sleepingHours means two-way connection of state of varible, reads the values and update the value.
+    //sleepingHours means only the writes the current state value.
+}
+
+
+//MARK: Learning a powerful tool "COREML"
+-> There 2 important things
+        1. CoreML is a framework that runs on Apple's platforms (iOS, macOS, tvOS, watchOS), which uses the machine learning models.
+        2. CreateML is a framework that allows you to create your own machine learning models.
+        3. its important to know that what input it requires and what output it will give for a model.
+
+-> Steps to use:
+1. click top-left corner of xcode -> DeveloperTools -> Create ML.
+2. create new project. Click on tabular regression.
+3. click on next, give name and author name.
+4. upload the training data i.e. betterSleep csv file. to train our model.
+5. Now give target and features. target = (output needed i.e. actualSleep(in csv file)). features = (inputs i.e. wake, gender, height, weight).
+6.Below we have parameters to train our model, we should provide an algorithm to work on data. but xcode has an fetures that it automatically selects the algorithm for us.
+7. click on train(play button on top).
+8. Now go to evalution column and check the results.
+9. Go to output column, so that we can download the model.provides .mlmodel file.
+10. If we want to modify our training model algorithm or any other parameter, go to settings columnun and right click on model sources's model and will get new model option to edit.
+
+
+
+//MARK: This is about ARC (Automatic Reference Counting)
+1.  In Swift, memory is managed by ARC (Automatic Reference Counting). ARC keeps track of how many references point to an object.
+Code:
+        class Person {
+            let name: String
+
+            init(name: String) {
+                self.name = name
+                print("Init")
+            }
+
+            deinit {
+                print("Deinit")
+            }
+        }
+
+        var person: Person? = Person(name: "Tarun") //reference count is 1
+        person = nil //reference count is 0 as the object became nil.
+    Note : When the reference count becomes 0, ARC removes the object.
+
+2. weak solves retain cycles because ARC does not increase the reference count for weak references. When the last strong reference is removed, the object is deallocated and all weak references are automatically set to nil.
+                                 ->Strong reference = ownership.
+                                 ->Weak reference = just a reference, no ownership.
+3. How to check the memory leaks
+                            -> Product -> Profile -> Leaks -> Start Recording -> Build -> Record -> Stop Recording.
+4. How to know CPU usage of particular place:
+                            -> Product -> Profile -> Time profiler (we can see cpu usage in xcode project debug navigator, but this time profiler will show exact place to where to optimise, is it auto layout or any function or any tableview).
+5. Performance optimisation:
+            -> If an api loads bulk number of images instantly, there will be a lot of memory consumption, battery usage, and may UI freezes while scrolling, this can be handle by using SDWebImage or kingFisher, this will only load images for first time, and then store them in cache for future use.This can make performance optimised.
+6. UITableView Optimization:
+            -> Bad usage :
+                    cell.layer.cornerRadius = 10
+                    cell.layer.shadowOpacity = 0.8
+                    inside : cellForRowAt
+            -> Optimised usage :
+                    awakeFromNib() or init()
+7. Avoid main thread blocking:
+           ->Bad usage : ( On main thread )
+                        let data = try Data(contentsOf: url), the ui may frezzes
+           -> Optimised usage :
+                        DispatchQueue.global().async {
+                                    let data = try? Data(contentsOf: url)
+
+                                    DispatchQueue.main.async {
+                                        elf.imageView.image = UIImage(data: data!)
+                                    }
+                          }
+
+
