@@ -5,6 +5,22 @@
 //  Created by Tarun on 29/04/26.
 //
 
+
+//Topics Learnt:
+//--------------
+// Leanrt about basics
+// Learnt about linear gradient
+// HStack, Vstack, Zstack
+// NavigationStack, List, Form, Buttons, Images
+// Enums, Closures
+// Struct , classes
+// Basic Structure of Switui
+// CoreML
+// Animations
+
+
+
+
 //29 - Apr -2026
 //I am starting the swiftui...
 // var t = "Tarun will become pro in ios development."
@@ -762,3 +778,8 @@ Code:
                           }
 
 
+//15 - Jun - 2026
+Today I am gonna learn about the animations in SwiftUI.
+Animations: (Checkout project animations.)
+--------------
+-> There are 2 types of animations: 1. Implict and 2. Explicit.
