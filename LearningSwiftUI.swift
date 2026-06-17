@@ -18,6 +18,10 @@
 // CoreML
 // Animations
 // observables
+// onDelete, showing and hiding views
+// UserDefaults, AppStorage
+// Identifiable, @Environment(\.dismiss)
+// Navigations between 2 views, passind data.
 
 
 
