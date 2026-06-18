@@ -21,7 +21,12 @@
 // onDelete, showing and hiding views
 // UserDefaults, AppStorage
 // Identifiable, @Environment(\.dismiss)
-// Navigations between 2 views, passind data.
+// Navigations between 2 views, passing data.
+// NavigationLink
+// generic function (used to decode the json.)
+// Passing data thorugh models
+// ScrollView, HStack, VStack, LazyStacks (eg: LazyVStack, LazyHstack, LazyVGrid, LazyHGrid)
+// separator using Rectangle()
 
 
 
@@ -788,3 +793,14 @@ Today I am gonna learn about the animations in SwiftUI.
 Animations: (Checkout project animations.)
 --------------
 -> There are 2 types of animations: 1. Implict and 2. Explicit.
+
+//17 - jun -2026
+MoonShot project started.
+
+//18 - jun -2026:
+//MARK: why to use "Lazy"
+-> The use of LazyVStack instead of VStack is,
+-> LazyVStack will create the rows, only when they are used, but where as VStack will create the no.of rows at a time.
+Example : -> we need to load 5000 rows in stack, if we load in normal VStack, we will load all the 5000 rows at a time, which is not efficient.
+         -> And this cause memory issues, performance issues, and also UI freezes.
+        -> In this case we will use LazyVStack, so that it will load the rows only when they are used. means only before when are visible on screen, it will be loaded.
