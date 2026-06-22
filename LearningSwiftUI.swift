@@ -28,6 +28,10 @@
 // ScrollView, HStack, VStack, LazyStacks (eg: LazyVStack, LazyHstack, LazyVGrid, LazyHGrid)
 // separator using Rectangle()
 // containerRelativeFrame()
+// @Binding
+// navigationDestination
+// async, await.
+// Loading async imageurl.
 
 
 
@@ -805,3 +809,12 @@ MoonShot project started.
 Example : -> we need to load 5000 rows in stack, if we load in normal VStack, we will load all the 5000 rows at a time, which is not efficient.
          -> And this cause memory issues, performance issues, and also UI freezes.
         -> In this case we will use LazyVStack, so that it will load the rows only when they are used. means only before when are visible on screen, it will be loaded.
+
+//19 - jun - 2026:
+@Binding is used when a child view needs to read and modify a piece of state that is owned by another view (usually the parent view).
+The child does not own the data. It gets a reference (connection) to the parent's state.
+                                                        
+//22 - jun - 2026:
+-------------------
+->CupCakeCorner
+-> In this project we can see, one order class is created and used its instance in all other views, using @Observable and @Bindable properties.
