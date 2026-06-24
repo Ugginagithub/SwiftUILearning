@@ -18,8 +18,9 @@
 // CoreML
 // Animations
 // observables
+// @State
 // onDelete, showing and hiding views
-// UserDefaults, AppStorage
+// UserDefaults, @AppStorage
 // Identifiable, @Environment(\.dismiss)
 // Navigations between 2 views, passing data.
 // NavigationLink
@@ -32,6 +33,13 @@
 // navigationDestination
 // async, await.
 // Loading async imageurl.
+// @Bindable
+// SwiftData
+// @Model -> .modelContainer(in main app file which contains @main) ->
+// @Environment(\.modelContext) var modelContext
+// @Queury
+// Custom rating view with stars.
+
 
 
 
@@ -818,3 +826,17 @@ The child does not own the data. It gets a reference (connection) to the parent'
 -------------------
 ->CupCakeCorner
 -> In this project we can see, one order class is created and used its instance in all other views, using @Observable and @Bindable properties.
+                                                        
+//23 - jun - 2026:
+-------------------
+
+-> BookWorm
+-> The app is so important to review,so that we can get complete idea about how to pass data and manage data flow in SwiftUI.This app is mainly contains SwiftData usage.recomanded to look.
+->//MARK: Steps to use swiftdata:
+  1. import SwiftData
+  2. Create a file and name it as User.swift(can be changeble), and add @Model to the class, initialse the class.
+  3. Go to @main app file and add the .modelContainer(for: user.self)
+  4. Now we can use the storage by creating @bindable to access the properties in the User class. Create a view(EditingView.swift) and use it in the view.
+  5. Handle the preview in edting view, for passing dummy data to Bindable class.
+  6. Now add a modelContext and query in ContentView, to access the storage data and we can operations.
+                                                        
