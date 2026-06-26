@@ -39,6 +39,9 @@
 // @Environment(\.modelContext) var modelContext
 // @Queury
 // Custom rating view with stars.
+// CoreImage -> CIFilter, CIContext
+// ShareLink, PhotosPicker, Slider
+// ContentUnavaiblabeView
 
 
 
@@ -839,4 +842,14 @@ The child does not own the data. It gets a reference (connection) to the parent'
   4. Now we can use the storage by creating @bindable to access the properties in the User class. Create a view(EditingView.swift) and use it in the view.
   5. Handle the preview in edting view, for passing dummy data to Bindable class.
   6. Now add a modelContext and query in ContentView, to access the storage data and we can operations.
+                
                                                         
+//26 - jun -2026
+-------------------
+-> Learned about coreImage, we can add many number of filters to the image and can edit the images
+-> import PhotosUI -> it for importing the storage images to the app, using PhotoPickerItem
+-> import StoreKit -> storekit is used to manage the in app purchases. like selling anything from your app, and present we are using it for app review, using @Environment(\.requestreview)
+-> ShareLink -> is used to share image or any files, if we click on it, we will get share options like airdrop, mail, teams, etc..
+-> ContentUnavailableview -> used when there is not content to show on screen, it help as a placeholder.
+-> confirmationDialog -> used to show multiple options in dialogbox.
+-> @MainActor -> Specifies that a function or property can only be called from the main thread.
