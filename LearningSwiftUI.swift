@@ -42,6 +42,9 @@
 // CoreImage -> CIFilter, CIContext
 // ShareLink, PhotosPicker, Slider
 // ContentUnavaiblabeView
+// Comparable
+// MapKit (Map(), marker, mapStyle)
+// URL.documentsDirectory (storage purpose.)
 
 
 
@@ -853,3 +856,11 @@ The child does not own the data. It gets a reference (connection) to the parent'
 -> ContentUnavailableview -> used when there is not content to show on screen, it help as a placeholder.
 -> confirmationDialog -> used to show multiple options in dialogbox.
 -> @MainActor -> Specifies that a function or property can only be called from the main thread.
+
+
+//29 - jun - 2026 (BucketListApp)
+-------------------
+-> "Comparable" is a swift protocol that to allows compare the values like sorting, ranking .. etc..
+-> It uses operators like <, >, ==,!=, <=, >= to compare the items, it will compare the obejcts also. very power full.
+-> Used on structs.
+-> Added mapKit, faceID authentication for app.
