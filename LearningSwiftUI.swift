@@ -43,8 +43,11 @@
 // ShareLink, PhotosPicker, Slider
 // ContentUnavaiblabeView
 // Comparable
-// MapKit (Map(), marker, mapStyle)
+// MapKit (Map(), marker, mapStyle, MapCameraPosition.region, MKCoordinateRegion(center:CLLocationCoordinate2D(), span: MKCordinateSpan()))
 // URL.documentsDirectory (storage purpose.)
+// MVVM (BucketList app).
+
+
 
 
 
@@ -864,3 +867,7 @@ The child does not own the data. It gets a reference (connection) to the parent'
 -> It uses operators like <, >, ==,!=, <=, >= to compare the items, it will compare the obejcts also. very power full.
 -> Used on structs.
 -> Added mapKit, faceID authentication for app.
+-> How to open the bucketList app
+       -> Run on simulator.
+       -> On desktop top tool bar, we features, that face ID -> Enrolled -> Matching face
+       -> Now click on "Unlock places", button and click option + command + N. The app will unlock automatically.
